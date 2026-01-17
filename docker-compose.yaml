@@ -1,0 +1,11 @@
+version: '3'
+services:
+  uav_sim:
+    build: .
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: ros2 launch uav_landing_sim simulation.launch.py
